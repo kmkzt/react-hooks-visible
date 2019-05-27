@@ -1,6 +1,6 @@
 # react-hooks-visible
 
-`react-hooks-visible` is a react library to determine if an element is visible. Uses Intersection Observer API.
+`react-hooks-visible` is React Hooks library for element visibility. Uses the intersection observer API.
 
 **[demo](https://kmkzt.github.io/react-hooks-visible/)**
 
