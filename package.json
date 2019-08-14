@@ -35,7 +35,7 @@
     "test": "jest --passWithNoTests",
     "release": "release-it"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "16.8.6"
   },
   "devDependencies": {
