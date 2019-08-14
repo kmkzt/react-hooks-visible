@@ -13,7 +13,7 @@
   "types": "lib/index.d.ts",
   "files": [
     "lib/*.{js,ts}",
-    "src/*.{js,ts}"
+    "src/*.{js,jsx,ts,tsx}"
   ],
   "directories": {
     "lib": "lib",
