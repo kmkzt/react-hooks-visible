@@ -16,7 +16,7 @@ started
 
 ```javascript
 import React from 'react'
-import { useVisble } from 'react-hooks-visible'
+import { useVisible } from 'react-hooks-visible'
 
 const VisibleComponent = () => {
   const [targetRef, visible] = useVisible()
