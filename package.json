@@ -34,7 +34,7 @@
     "build:clear": "rimraf lib/* && rimraf docs/*",
     "build:rollup": "NODE_ENV=production rollup -c",
     "build:tsc": "NODE_ENV=production tsc --emitDeclarationOnly",
-    "build:demo": "NODE_ENV=development webpack -p",
+    "build:demo": "NODE_ENV=production webpack -p",
     "sample": "webpack-dev-server server.js",
     "test": "jest --passWithNoTests",
     "release": "release-it"
