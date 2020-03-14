@@ -14,7 +14,10 @@ const globals = {
 }
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx', '.json']
-const external = id => !id.startsWith('.') && !id.startsWith('/')
+// TODO: research
+// const external = id => !id.startsWith('.') && !id.startsWith('/')
+const external = Object.keys(globals)
+const esm_targets = '>1%, not dead, not ie 11, not op_mini all'
 
 const getBabelOptions = ({ useESModules }) => ({
   extensions,
@@ -22,18 +25,24 @@ const getBabelOptions = ({ useESModules }) => ({
   exclude: '**/node_modules/**',
   runtimeHelpers: true,
   presets: [
-    ['@babel/preset-env', { loose: true }],
+    [
+      '@babel/preset-env',
+      {
+        loose: true,
+        modules: false,
+        targets: useESModules ? esm_targets : undefined
+      }
+    ],
     // react
     // ['@babel/preset-react', { useBuiltIns: true }],
     '@babel/preset-typescript'
   ],
   plugins: [
-    // react
-    // ['transform-react-remove-prop-types', { removeImport: true }],
-    '@babel/plugin-proposal-class-properties',
+    ['transform-react-remove-prop-types', { removeImport: true }],
+    // '@babel/plugin-proposal-class-properties',
     // TODO: optimize bundle size
     // 'babel-plugin-annotate-pure-calls',
-    ['@babel/plugin-transform-runtime', { useESModules }]
+    ['@babel/plugin-transform-runtime', { regenerator: false, useESModules }]
   ]
 })
 
@@ -98,9 +107,10 @@ export default [
     },
     external,
     plugins: [
-      sourceMaps(),
       babel(getBabelOptions({ useESModules: false })),
+      commonjs(),
       nodeResolve({ extensions }),
+      sourceMaps(),
       sizeSnapshot()
     ]
   },
@@ -112,9 +122,9 @@ export default [
     output: { file: pkg.module, format: 'esm', sourcemap: true },
     external,
     plugins: [
-      sourceMaps(),
       babel(getBabelOptions({ useESModules: true })),
       nodeResolve({ extensions }),
+      sourceMaps(),
       sizeSnapshot()
     ]
   }
