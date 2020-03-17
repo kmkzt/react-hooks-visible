@@ -14,7 +14,7 @@ module.exports = api => {
         }
       ],
       // react only
-      // '@babel/preset-react',
+      '@babel/preset-react',
       '@babel/preset-typescript'
     ],
     plugins: [

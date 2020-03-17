@@ -34,7 +34,7 @@ const getBabelOptions = ({ useESModules }) => ({
       }
     ],
     // react
-    // ['@babel/preset-react', { useBuiltIns: true }],
+    ['@babel/preset-react', { useBuiltIns: true }],
     '@babel/preset-typescript'
   ],
   plugins: [
