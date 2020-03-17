@@ -1,5 +1,7 @@
 # react-hooks-visible
 
+[![npm version](https://badge.fury.io/js/react-hooks-visible.svg)](https://badge.fury.io/js/react-hooks-visible.svg) ![npm](https://img.shields.io/npm/dt/react-hooks-visible.svg)
+
 `react-hooks-visible` is React Hooks library for element visibility. Uses the intersection observer API.
 
 **[demo](https://kmkzt.github.io/react-hooks-visible/)**
