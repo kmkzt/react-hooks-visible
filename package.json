@@ -14,8 +14,7 @@
   "browser": "lib/index.min.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib/*.{js,ts}",
-    "src/*.{js,jsx,ts,tsx}"
+    "lib/*.{js,ts}"
   ],
   "directories": {
     "lib": "lib",
@@ -37,7 +36,8 @@
     "build:demo": "NODE_ENV=production webpack -p",
     "sample": "webpack-dev-server server.js",
     "test": "jest --passWithNoTests",
-    "release": "release-it"
+    "release": "release-it",
+    "prepare": "yarn build:rollup; yarn build:tsc"
   },
   "peerDependencies": {
     "react": ">=16.8"
